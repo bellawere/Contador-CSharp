@@ -133,14 +133,28 @@ namespace Contador
 
         private void tb_min_TextChanged(object sender, EventArgs e)
         {
-            min = int.Parse(tb_min.Text);
+            try
+            {
+                min = int.Parse(tb_min.Text);
+            }
+            catch (FormatException x)
+            {
+                min = 0;
+            }
             Atualizar();
             L("Minutos modificados para " + min.ToString());
         }
 
         private void tb_seg_TextChanged(object sender, EventArgs e)
         {
-            seg = int.Parse(tb_seg.Text);
+            try
+            {
+                seg = int.Parse(tb_seg.Text);
+            }
+            catch (FormatException x)
+            {
+                seg = 0;
+            }
             Atualizar();
             L("Segundos modificados para " + seg.ToString());
         }

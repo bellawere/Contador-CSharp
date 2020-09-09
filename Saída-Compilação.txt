@@ -1,4 +1,6 @@
 ﻿1>------ Compilação iniciada: Projeto: Contador, Configuração: Debug Any CPU ------
+1>D:\Workspace\Repos\Contador\Contador\Admin.cs(140,36,140,37): warning CS0168: A variável "x" está declarada, mas nunca é usada
+1>D:\Workspace\Repos\Contador\Contador\Admin.cs(154,36,154,37): warning CS0168: A variável "x" está declarada, mas nunca é usada
 1>  Contador -> D:\Workspace\Repos\Contador\Contador\bin\Debug\Contador.exe
 Compilando Contador...
 2>------ Publicação iniciada: Projeto: Contador, Configuração: Debug Any CPU ------
