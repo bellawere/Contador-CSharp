@@ -198,7 +198,7 @@
             this.Controls.Add(this.bt_start);
             this.DoubleBuffered = true;
             this.Name = "Admin";
-            this.Text = "Form1";
+            this.Text = "Cronômetro Stereoworks";
             ((System.ComponentModel.ISupportInitialize)(this.bg_view)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
