@@ -32,6 +32,7 @@ namespace Contador
 
             tempo.Size = Size;
             tempo.Text = "00:00";
+            tempo.ForeColor = Admin.textColor;
 
             int textSize = Size.Height / 5;
 
@@ -39,7 +40,8 @@ namespace Contador
             tempo.Font = font;
 
             BackgroundImage = Admin.bg;
-            this.KeyDown += new KeyEventHandler(GetEsc);
+            KeyDown += new KeyEventHandler(GetEsc);
+            DoubleBuffered = true;
             
         }
 

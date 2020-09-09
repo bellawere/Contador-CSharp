@@ -1,0 +1,10 @@
+﻿1>------ Compilação iniciada: Projeto: Contador, Configuração: Debug Any CPU ------
+1>  Contador -> D:\Workspace\Repos\Contador\Contador\bin\Debug\Contador.exe
+Compilando Contador...
+2>------ Publicação iniciada: Projeto: Contador, Configuração: Debug Any CPU ------
+Conectando a 'Z:\Cronometro\'...
+Publicando arquivos...
+Publicação ocorreu com êxito.
+Z:\Cronometro\
+========== Compilar: 1 com êxito, 0 com falha, 0 atualizados, 0 ignorados ==========
+========== Publicação: 1 com êxito, 0 com falha, 0 ignorados ==========
