@@ -80,6 +80,15 @@ namespace Contador.Properties {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Identificar telas.
+        /// </summary>
+        internal static string button_id {
+            get {
+                return ResourceManager.GetString("button_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Limpar BG.
         /// </summary>
         internal static string button_resetbg {
@@ -112,6 +121,15 @@ namespace Contador.Properties {
         internal static string button_stream {
             get {
                 return ResourceManager.GetString("button_stream", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Fundo claro?.
+        /// </summary>
+        internal static string check_cor {
+            get {
+                return ResourceManager.GetString("check_cor", resourceCulture);
             }
         }
         

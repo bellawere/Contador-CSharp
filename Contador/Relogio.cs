@@ -15,7 +15,7 @@ namespace Contador
         SolidBrush pincel = new SolidBrush(Color.Black);
         Graphics layout;
 
-        public Relogio(int screenindex)
+        public Relogio(int screenindex, string time)
         {
             InitializeComponent();
 
@@ -29,12 +29,12 @@ namespace Contador
 
             layout = CreateGraphics();
             layout.FillRectangle(pincel, new Rectangle(borda, Size));
-
+            
             tempo.Size = Size;
-            tempo.Text = "00:00";
+            tempo.Text = time;
             tempo.ForeColor = Admin.textColor;
 
-            int textSize = Size.Height / 5;
+            float textSize = Size.Height * Admin.sizeCoef;
 
             Font font = new Font(FontFamily.GenericSansSerif, textSize, FontStyle.Bold, GraphicsUnit.Pixel);
             tempo.Font = font;

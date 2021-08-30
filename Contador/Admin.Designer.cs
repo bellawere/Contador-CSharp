@@ -42,6 +42,9 @@
             this.lb_mon = new System.Windows.Forms.Label();
             this.cb_cor = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bt_identify = new System.Windows.Forms.Button();
+            this.lb_console = new System.Windows.Forms.Label();
+            this.tb_console = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bg_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -102,9 +105,9 @@
             // 
             // bt_send
             // 
-            this.bt_send.Location = new System.Drawing.Point(12, 236);
+            this.bt_send.Location = new System.Drawing.Point(15, 238);
             this.bt_send.Name = "bt_send";
-            this.bt_send.Size = new System.Drawing.Size(484, 31);
+            this.bt_send.Size = new System.Drawing.Size(480, 31);
             this.bt_send.TabIndex = 6;
             this.bt_send.UseVisualStyleBackColor = true;
             this.bt_send.Click += new System.EventHandler(this.bt_send_Click);
@@ -140,9 +143,9 @@
             // cb_mon
             // 
             this.cb_mon.FormattingEnabled = true;
-            this.cb_mon.Location = new System.Drawing.Point(12, 209);
+            this.cb_mon.Location = new System.Drawing.Point(15, 209);
             this.cb_mon.Name = "cb_mon";
-            this.cb_mon.Size = new System.Drawing.Size(484, 21);
+            this.cb_mon.Size = new System.Drawing.Size(480, 21);
             this.cb_mon.TabIndex = 10;
             this.cb_mon.SelectedIndexChanged += new System.EventHandler(this.cb_mon_SelectedIndexChanged);
             // 
@@ -160,9 +163,8 @@
             this.cb_cor.BackColor = System.Drawing.Color.Transparent;
             this.cb_cor.Location = new System.Drawing.Point(398, 150);
             this.cb_cor.Name = "cb_cor";
-            this.cb_cor.Size = new System.Drawing.Size(98, 17);
+            this.cb_cor.Size = new System.Drawing.Size(15, 14);
             this.cb_cor.TabIndex = 13;
-            this.cb_cor.Text = "Fundo branco?";
             this.cb_cor.UseVisualStyleBackColor = false;
             this.cb_cor.CheckedChanged += new System.EventHandler(this.cb_cor_CheckedChanged);
             // 
@@ -176,12 +178,41 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // bt_identify
+            // 
+            this.bt_identify.Location = new System.Drawing.Point(375, 180);
+            this.bt_identify.Name = "bt_identify";
+            this.bt_identify.Size = new System.Drawing.Size(120, 23);
+            this.bt_identify.TabIndex = 15;
+            this.bt_identify.UseVisualStyleBackColor = true;
+            this.bt_identify.Click += new System.EventHandler(this.bt_identify_Click);
+            // 
+            // lb_console
+            // 
+            this.lb_console.AutoSize = true;
+            this.lb_console.Location = new System.Drawing.Point(12, 287);
+            this.lb_console.Name = "lb_console";
+            this.lb_console.Size = new System.Drawing.Size(0, 13);
+            this.lb_console.TabIndex = 16;
+            // 
+            // tb_console
+            // 
+            this.tb_console.Enabled = false;
+            this.tb_console.Location = new System.Drawing.Point(15, 318);
+            this.tb_console.Multiline = true;
+            this.tb_console.Name = "tb_console";
+            this.tb_console.Size = new System.Drawing.Size(480, 92);
+            this.tb_console.TabIndex = 17;
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(513, 317);
+            this.ClientSize = new System.Drawing.Size(513, 422);
+            this.Controls.Add(this.tb_console);
+            this.Controls.Add(this.lb_console);
+            this.Controls.Add(this.bt_identify);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cb_cor);
             this.Controls.Add(this.lb_mon);
@@ -222,6 +253,9 @@
         private System.Windows.Forms.Label lb_mon;
         private System.Windows.Forms.CheckBox cb_cor;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button bt_identify;
+        private System.Windows.Forms.Label lb_console;
+        private System.Windows.Forms.TextBox tb_console;
     }
 }
 

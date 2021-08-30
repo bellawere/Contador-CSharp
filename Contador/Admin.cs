@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
+using System.IO;
 
 using Contador.Properties;
 
@@ -18,10 +19,12 @@ namespace Contador
         private int min;
         private int seg;
         private bool active = false;
+        private bool late = false;
         private string tickTime = "";
         private static Color mainColor = Color.White;
         public static Color textColor = mainColor;
         public static Image bg = Resources.bg_sw_flip;
+        public static float sizeCoef = 0.58f;
 
         //Componentes
         private static System.Timers.Timer clock;
@@ -29,15 +32,22 @@ namespace Contador
         private Screen tela;
         private Relogio x;
         public event TimeHolder Contagem;
-
-
+        private List<string> telasIndex;
+        private List<string> console;
+        
         public Admin()
         {
             InitializeComponent();
-            Reset();
             telas = Screen.AllScreens;
+            telasIndex = new List<string>();
+            console = new List<string>();
 
-            cb_mon.Items.AddRange(telas);
+            foreach (Screen x in telas)
+            {
+                telasIndex.Add(x.DeviceName);
+            }
+
+            cb_mon.Items.AddRange(telasIndex.ToArray());
             cb_mon.SelectedItem = cb_mon.Items[0];
 
             tela = Screen.AllScreens[cb_mon.SelectedIndex] ;
@@ -45,17 +55,21 @@ namespace Contador
             bt_send.Text = Resources.button_stream;
             bt_start.Text = Resources.button_start;
             bt_stop.Text = Resources.button_stop;
+            bt_identify.Text = Resources.button_id;
             lb_min.Text = Resources.label_min;
             lb_seg.Text = Resources.label_seg;
             lb_mon.Text = Resources.label_monitor;
             bt_bg.Text = Resources.button_bg;
             bt_reset_bg.Text = Resources.button_resetbg;
-            //Definir cb_color
+            cb_cor.Text = Resources.check_cor;
 
             clock = new System.Timers.Timer();
             clock.Interval = 1000;
             clock.Elapsed += Tick;
             bg_view.Image = bg;
+            Reset();
+
+            FormClosing += OnClose;
 
             L("Programa iniciado. Bem vindos.");
         }
@@ -66,6 +80,7 @@ namespace Contador
             min = 0;
             seg = 0;
             textColor = mainColor;
+            late = false;
         }
 
         private void Start()
@@ -86,20 +101,37 @@ namespace Contador
 
         private void Tick(object source, ElapsedEventArgs e)
         {
-            L("Tick");
+            L("Tique");
 
             if (active)
             {
-                seg--;
-                if (seg < 0)
-                {
-                    min--;
-                    seg = 59;
-                }
-
-                if(min < 0)
+                if (late)
                 {
                     textColor = Color.Red;
+                    seg++;
+                    if(seg > 59)
+                    {
+                        min++;
+                        seg = 0;
+                    }
+                }
+                else
+                {
+                    textColor = mainColor;
+                    seg--;
+                    if (seg < 0)
+                    {
+                        min--;
+                        seg = 59;
+                    }
+
+                    if (min < 0)
+                    {
+                        textColor = Color.Red;
+                        late = true;
+                        min = 0;
+                        seg = 1;
+                    }
                 }
             }
 
@@ -137,12 +169,12 @@ namespace Contador
             {
                 min = int.Parse(tb_min.Text);
             }
-            catch (FormatException x)
+            catch (FormatException)
             {
                 min = 0;
             }
             Atualizar();
-            L("Minutos modificados para " + min.ToString());
+            L("Minutos: " + min.ToString());
         }
 
         private void tb_seg_TextChanged(object sender, EventArgs e)
@@ -151,12 +183,12 @@ namespace Contador
             {
                 seg = int.Parse(tb_seg.Text);
             }
-            catch (FormatException x)
+            catch (FormatException)
             {
                 seg = 0;
             }
             Atualizar();
-            L("Segundos modificados para " + seg.ToString());
+            L("Segundos: " + seg.ToString());
         }
 
         private void cb_mon_SelectedIndexChanged(object sender, EventArgs e)
@@ -167,13 +199,10 @@ namespace Contador
 
         private void Exibir()
         {
-            x = new Relogio(cb_mon.SelectedIndex);
+            string t = min.ToString("D2") + ":" + seg.ToString("D2");
+            x = new Relogio(cb_mon.SelectedIndex, t);
             x.Show();
-        }
-
-        private void L(string text)
-        {
-            Console.WriteLine(text + " " + tickTime);
+            L("Exibindo relógio");
         }
 
         private void Atualizar()
@@ -219,6 +248,7 @@ namespace Contador
                 mainColor = Color.White;
                 textColor = mainColor;
             }
+            L("Cor modificada");
         }
 
         private void bt_bg_Click(object sender, EventArgs e)
@@ -234,7 +264,9 @@ namespace Contador
                 Atualizar();
             }
 
+            L("Modificando Background...");
             bg_view.Image = bg;
+            L("Background modificado");
 
         }
 
@@ -242,7 +274,57 @@ namespace Contador
         {
             bg = Resources.bg_sw_flip;
             bg_view.Image = bg;
+            L("Redefinindo Background");
             Atualizar();
+        }
+
+        private void bt_identify_Click(object sender, EventArgs e)
+        {
+            L("Identificando telas");
+
+            int size = telasIndex.Count;
+
+            for(int x = 0; x < size; x++)
+            {
+                new Identificador(x).Show();
+            }
+        }
+
+        private void OnClose(object sender, FormClosingEventArgs e)
+        {
+            L("Fechando...");
+
+            string time = DateTime.Now.ToString();
+            string datecorrected = time.Replace(":", "_");
+            string spacecorrected = datecorrected.Replace(" ", "_");
+            string timeformat = spacecorrected.Replace("/", "_");
+
+            string path = Path.GetTempPath();
+            string file = "CSW_log_" + timeformat + ".txt";
+            string fullpath = path + file;
+            File.AppendAllLines(fullpath, console);
+        }
+
+        private void L(string text)
+        {
+            Console.WriteLine(text + " " + tickTime);
+
+            console.Add(DateTime.Now.ToString() + ": " + text);
+
+            try
+            {
+                tb_console.Lines = console.ToArray();
+                tb_console.AppendText(" ");
+            }
+            catch (Exception)
+            {
+                MethodInvoker cs = delegate
+                {
+                    tb_console.Lines = console.ToArray();
+                    tb_console.AppendText(" ");
+                };
+                Invoke(cs);
+            }
         }
     }
 }
