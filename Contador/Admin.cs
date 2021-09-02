@@ -63,8 +63,7 @@ namespace Contador
             bt_bg.Text = Resources.button_bg;
             bt_reset_bg.Text = Resources.button_resetbg;
             cb_cor.Text = Resources.check_cor;
-
-            lb_textsize.Text = "Tamanho da fonte";
+            lb_textsize.Text = Resources.label_txtsize;
 
             clock = new System.Timers.Timer();
             clock.Interval = 1000;
@@ -73,6 +72,7 @@ namespace Contador
             Reset();
 
             FormClosing += OnClose;
+            KeyDown += new KeyEventHandler(GetKey);
 
             L("Programa iniciado. Bem vindos.");
         }
@@ -84,6 +84,7 @@ namespace Contador
             seg = 0;
             textColor = mainColor;
             late = false;
+            bt_stop.Text = Resources.button_stop;
         }
 
         private void Start()
@@ -91,6 +92,7 @@ namespace Contador
             L("Relógio iniciado");
             clock.Start();
             active = true;
+            bt_stop.Text = Resources.button_stop;
         }
 
         private void Stop()
@@ -98,6 +100,7 @@ namespace Contador
             L("Relógio parado");
             clock.Stop();
             active = false;
+            bt_stop.Text = Resources.button_reset;
         }
 
         //Eventos de tique, edição e atualização abaixo
@@ -345,6 +348,13 @@ namespace Contador
                 z.Size = tsize;
                 Tamanho?.Invoke(new object(), z);
             }
+        }
+
+        private void GetKey(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+
+            L("Pressionado: " + e.KeyValue);
         }
     }
 }

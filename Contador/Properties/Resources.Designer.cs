@@ -89,6 +89,15 @@ namespace Contador.Properties {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Resetar.
+        /// </summary>
+        internal static string button_reset {
+            get {
+                return ResourceManager.GetString("button_reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Limpar BG.
         /// </summary>
         internal static string button_resetbg {
@@ -157,6 +166,15 @@ namespace Contador.Properties {
         internal static string label_seg {
             get {
                 return ResourceManager.GetString("label_seg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Tamanho do texto.
+        /// </summary>
+        internal static string label_txtsize {
+            get {
+                return ResourceManager.GetString("label_txtsize", resourceCulture);
             }
         }
         

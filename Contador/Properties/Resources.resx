@@ -157,4 +157,10 @@
   <data name="check_cor" xml:space="preserve">
     <value>Fundo claro?</value>
   </data>
+  <data name="button_reset" xml:space="preserve">
+    <value>Resetar</value>
+  </data>
+  <data name="label_txtsize" xml:space="preserve">
+    <value>Tamanho do texto</value>
+  </data>
 </root>

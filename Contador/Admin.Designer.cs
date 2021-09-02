@@ -224,9 +224,8 @@
             this.lb_textsize.AutoSize = true;
             this.lb_textsize.Location = new System.Drawing.Point(529, 130);
             this.lb_textsize.Name = "lb_textsize";
-            this.lb_textsize.Size = new System.Drawing.Size(20, 13);
+            this.lb_textsize.Size = new System.Drawing.Size(0, 13);
             this.lb_textsize.TabIndex = 19;
-            this.lb_textsize.Text = "T1";
             // 
             // tr_textsize
             // 
@@ -235,7 +234,7 @@
             this.tr_textsize.Minimum = 25;
             this.tr_textsize.Name = "tr_textsize";
             this.tr_textsize.Size = new System.Drawing.Size(221, 45);
-            this.tr_textsize.TabIndex = 20;
+            this.tr_textsize.TabIndex = 1;
             this.tr_textsize.Value = 58;
             this.tr_textsize.Scroll += new System.EventHandler(this.tr_textsize_Scroll);
             // 
