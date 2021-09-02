@@ -32,6 +32,7 @@ namespace Contador
         private Screen tela;
         private Relogio x;
         public event TimeHolder Contagem;
+        public event SizeHolder Tamanho;
         private List<string> telasIndex;
         private List<string> console;
         
@@ -62,6 +63,8 @@ namespace Contador
             bt_bg.Text = Resources.button_bg;
             bt_reset_bg.Text = Resources.button_resetbg;
             cb_cor.Text = Resources.check_cor;
+
+            lb_textsize.Text = "Tamanho da fonte";
 
             clock = new System.Timers.Timer();
             clock.Interval = 1000;
@@ -209,6 +212,9 @@ namespace Contador
         {
             MethodInvoker inv = delegate
             {
+                string timestring = min.ToString("D2") + ":" + seg.ToString("D2");
+                time_return.Text = timestring;
+
                 tb_min.Text = min.ToString();
                 tb_seg.Text = seg.ToString();
                 
@@ -324,6 +330,20 @@ namespace Contador
                     tb_console.AppendText(" ");
                 };
                 Invoke(cs);
+            }
+        }
+
+        private void tr_textsize_Scroll(object sender, EventArgs e)
+        {
+            float tsize = float.Parse("0," + tr_textsize.Value.ToString());
+            sizeCoef = tsize;
+
+            if (x != null)
+            {
+                Tamanho += new SizeHolder(x.GetSize);
+                SizeEventArgs z = new SizeEventArgs();
+                z.Size = tsize;
+                Tamanho?.Invoke(new object(), z);
             }
         }
     }

@@ -102,6 +102,7 @@
     <Compile Include="Relogio.Designer.cs">
       <DependentUpon>Relogio.cs</DependentUpon>
     </Compile>
+    <Compile Include="SizeHolder.cs" />
     <Compile Include="TimeHolder.cs" />
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>

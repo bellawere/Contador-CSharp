@@ -56,6 +56,12 @@ namespace Contador
             }
         }
 
+        public void GetSize(object sender, SizeEventArgs e)
+        {
+            float textsize = Size.Height * e.Size;
+            tempo.Font = new Font(FontFamily.GenericSansSerif, textsize, FontStyle.Bold, GraphicsUnit.Pixel);
+        }
+
         public void GetEsc(object sender, KeyEventArgs e)
         {
             e.Handled = true;

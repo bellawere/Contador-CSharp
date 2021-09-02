@@ -45,8 +45,12 @@
             this.bt_identify = new System.Windows.Forms.Button();
             this.lb_console = new System.Windows.Forms.Label();
             this.tb_console = new System.Windows.Forms.TextBox();
+            this.time_return = new System.Windows.Forms.Label();
+            this.lb_textsize = new System.Windows.Forms.Label();
+            this.tr_textsize = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.bg_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tr_textsize)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_start
@@ -204,12 +208,46 @@
             this.tb_console.Size = new System.Drawing.Size(480, 92);
             this.tb_console.TabIndex = 17;
             // 
+            // time_return
+            // 
+            this.time_return.AutoSize = true;
+            this.time_return.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time_return.Location = new System.Drawing.Point(513, 8);
+            this.time_return.Name = "time_return";
+            this.time_return.Size = new System.Drawing.Size(237, 91);
+            this.time_return.TabIndex = 18;
+            this.time_return.Text = "00:00";
+            this.time_return.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_textsize
+            // 
+            this.lb_textsize.AutoSize = true;
+            this.lb_textsize.Location = new System.Drawing.Point(529, 130);
+            this.lb_textsize.Name = "lb_textsize";
+            this.lb_textsize.Size = new System.Drawing.Size(20, 13);
+            this.lb_textsize.TabIndex = 19;
+            this.lb_textsize.Text = "T1";
+            // 
+            // tr_textsize
+            // 
+            this.tr_textsize.Location = new System.Drawing.Point(529, 158);
+            this.tr_textsize.Maximum = 58;
+            this.tr_textsize.Minimum = 25;
+            this.tr_textsize.Name = "tr_textsize";
+            this.tr_textsize.Size = new System.Drawing.Size(221, 45);
+            this.tr_textsize.TabIndex = 20;
+            this.tr_textsize.Value = 58;
+            this.tr_textsize.Scroll += new System.EventHandler(this.tr_textsize_Scroll);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(513, 422);
+            this.ClientSize = new System.Drawing.Size(772, 422);
+            this.Controls.Add(this.tr_textsize);
+            this.Controls.Add(this.lb_textsize);
+            this.Controls.Add(this.time_return);
             this.Controls.Add(this.tb_console);
             this.Controls.Add(this.lb_console);
             this.Controls.Add(this.bt_identify);
@@ -232,6 +270,7 @@
             this.Text = "Cronômetro Stereoworks";
             ((System.ComponentModel.ISupportInitialize)(this.bg_view)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tr_textsize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +295,9 @@
         private System.Windows.Forms.Button bt_identify;
         private System.Windows.Forms.Label lb_console;
         private System.Windows.Forms.TextBox tb_console;
+        private System.Windows.Forms.Label time_return;
+        private System.Windows.Forms.Label lb_textsize;
+        private System.Windows.Forms.TrackBar tr_textsize;
     }
 }
 
