@@ -20,6 +20,8 @@ namespace Contador
             InitializeComponent();
 
             FormBorderStyle = FormBorderStyle.None;
+            ControlBox = false;
+            Text = " ";
 
             Rectangle limites = Screen.AllScreens[screenindex].Bounds;
             StartPosition = FormStartPosition.Manual;
@@ -34,13 +36,14 @@ namespace Contador
             tempo.Text = time;
             tempo.ForeColor = Admin.textColor;
 
-            float textSize = Size.Height * Admin.sizeCoef;
+            float textSize = Math.Min(Size.Height, Size.Width) * Admin.sizeCoef;
 
             Font font = new Font(FontFamily.GenericSansSerif, textSize, FontStyle.Bold, GraphicsUnit.Pixel);
             tempo.Font = font;
 
             BackgroundImage = Admin.bg;
             KeyDown += new KeyEventHandler(GetEsc);
+            Resize += new EventHandler(GetResize);
             DoubleBuffered = true;
             
         }
@@ -58,7 +61,13 @@ namespace Contador
 
         public void GetSize(object sender, SizeEventArgs e)
         {
-            float textsize = Size.Height * e.Size;
+            float textsize = Math.Min(Size.Height, Size.Width) * e.Size;
+            tempo.Font = new Font(FontFamily.GenericSansSerif, textsize, FontStyle.Bold, GraphicsUnit.Pixel);
+        }
+
+        public void GetResize(object sender, EventArgs e)
+        {
+            float textsize = Math.Min(Size.Height, Size.Width) * Admin.sizeCoef;
             tempo.Font = new Font(FontFamily.GenericSansSerif, textsize, FontStyle.Bold, GraphicsUnit.Pixel);
         }
 
@@ -71,6 +80,15 @@ namespace Contador
             if(e.KeyCode == Keys.Escape)
             {
                 Close();
+            } else if(e.KeyCode == Keys.Enter)
+            {
+                if (FormBorderStyle == FormBorderStyle.None)
+                {
+                    FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                } else
+                {
+                    FormBorderStyle = FormBorderStyle.None;
+                }
             }
         }
     }
