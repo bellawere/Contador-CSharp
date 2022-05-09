@@ -48,9 +48,18 @@
             this.time_return = new System.Windows.Forms.Label();
             this.lb_textsize = new System.Windows.Forms.Label();
             this.tr_textsize = new System.Windows.Forms.TrackBar();
+            this.lb_lateText = new System.Windows.Forms.Label();
+            this.tb_lateTxt = new System.Windows.Forms.TextBox();
+            this.cb_switchClk = new System.Windows.Forms.CheckBox();
+            this.lb_clksize = new System.Windows.Forms.Label();
+            this.tr_clksize = new System.Windows.Forms.TrackBar();
+            this.bt_clockcolor = new System.Windows.Forms.Button();
+            this.cd_clkcolor = new System.Windows.Forms.ColorDialog();
+            this.lb_colorpick = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bg_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tr_textsize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tr_clksize)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_start
@@ -230,13 +239,74 @@
             // tr_textsize
             // 
             this.tr_textsize.Location = new System.Drawing.Point(529, 158);
-            this.tr_textsize.Maximum = 58;
+            this.tr_textsize.Maximum = 48;
             this.tr_textsize.Minimum = 25;
             this.tr_textsize.Name = "tr_textsize";
             this.tr_textsize.Size = new System.Drawing.Size(221, 45);
             this.tr_textsize.TabIndex = 1;
-            this.tr_textsize.Value = 58;
+            this.tr_textsize.Value = 48;
             this.tr_textsize.Scroll += new System.EventHandler(this.tr_textsize_Scroll);
+            // 
+            // lb_lateText
+            // 
+            this.lb_lateText.AutoSize = true;
+            this.lb_lateText.Location = new System.Drawing.Point(532, 216);
+            this.lb_lateText.Name = "lb_lateText";
+            this.lb_lateText.Size = new System.Drawing.Size(0, 13);
+            this.lb_lateText.TabIndex = 20;
+            // 
+            // tb_lateTxt
+            // 
+            this.tb_lateTxt.Location = new System.Drawing.Point(529, 248);
+            this.tb_lateTxt.Name = "tb_lateTxt";
+            this.tb_lateTxt.Size = new System.Drawing.Size(221, 20);
+            this.tb_lateTxt.TabIndex = 21;
+            // 
+            // cb_switchClk
+            // 
+            this.cb_switchClk.AutoSize = true;
+            this.cb_switchClk.Location = new System.Drawing.Point(529, 289);
+            this.cb_switchClk.Name = "cb_switchClk";
+            this.cb_switchClk.Size = new System.Drawing.Size(15, 14);
+            this.cb_switchClk.TabIndex = 22;
+            this.cb_switchClk.UseVisualStyleBackColor = true;
+            this.cb_switchClk.CheckedChanged += new System.EventHandler(this.cb_switchClk_CheckedChanged);
+            // 
+            // lb_clksize
+            // 
+            this.lb_clksize.AutoSize = true;
+            this.lb_clksize.Location = new System.Drawing.Point(529, 318);
+            this.lb_clksize.Name = "lb_clksize";
+            this.lb_clksize.Size = new System.Drawing.Size(0, 13);
+            this.lb_clksize.TabIndex = 23;
+            // 
+            // tr_clksize
+            // 
+            this.tr_clksize.Location = new System.Drawing.Point(529, 338);
+            this.tr_clksize.Maximum = 30;
+            this.tr_clksize.Minimum = 5;
+            this.tr_clksize.Name = "tr_clksize";
+            this.tr_clksize.Size = new System.Drawing.Size(221, 45);
+            this.tr_clksize.TabIndex = 24;
+            this.tr_clksize.Value = 10;
+            this.tr_clksize.Scroll += new System.EventHandler(this.tr_clksize_Scroll);
+            // 
+            // bt_clockcolor
+            // 
+            this.bt_clockcolor.Location = new System.Drawing.Point(686, 387);
+            this.bt_clockcolor.Name = "bt_clockcolor";
+            this.bt_clockcolor.Size = new System.Drawing.Size(64, 23);
+            this.bt_clockcolor.TabIndex = 25;
+            this.bt_clockcolor.UseVisualStyleBackColor = true;
+            this.bt_clockcolor.Click += new System.EventHandler(this.bt_clockcolor_Click);
+            // 
+            // lb_colorpick
+            // 
+            this.lb_colorpick.AutoSize = true;
+            this.lb_colorpick.Location = new System.Drawing.Point(526, 397);
+            this.lb_colorpick.Name = "lb_colorpick";
+            this.lb_colorpick.Size = new System.Drawing.Size(0, 13);
+            this.lb_colorpick.TabIndex = 26;
             // 
             // Admin
             // 
@@ -244,6 +314,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(772, 422);
+            this.Controls.Add(this.lb_colorpick);
+            this.Controls.Add(this.bt_clockcolor);
+            this.Controls.Add(this.tr_clksize);
+            this.Controls.Add(this.lb_clksize);
+            this.Controls.Add(this.cb_switchClk);
+            this.Controls.Add(this.tb_lateTxt);
+            this.Controls.Add(this.lb_lateText);
             this.Controls.Add(this.tr_textsize);
             this.Controls.Add(this.lb_textsize);
             this.Controls.Add(this.time_return);
@@ -270,6 +347,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bg_view)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tr_textsize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tr_clksize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,6 +375,14 @@
         private System.Windows.Forms.Label time_return;
         private System.Windows.Forms.Label lb_textsize;
         private System.Windows.Forms.TrackBar tr_textsize;
+        private System.Windows.Forms.Label lb_lateText;
+        private System.Windows.Forms.TextBox tb_lateTxt;
+        private System.Windows.Forms.CheckBox cb_switchClk;
+        private System.Windows.Forms.Label lb_clksize;
+        private System.Windows.Forms.TrackBar tr_clksize;
+        private System.Windows.Forms.Button bt_clockcolor;
+        private System.Windows.Forms.ColorDialog cd_clkcolor;
+        private System.Windows.Forms.Label lb_colorpick;
     }
 }
 

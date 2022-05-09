@@ -143,6 +143,33 @@ namespace Contador.Properties {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Tamanho do relógio.
+        /// </summary>
+        internal static string label_clocksize {
+            get {
+                return ResourceManager.GetString("label_clocksize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Cor dos textos adicionais.
+        /// </summary>
+        internal static string label_colorpick {
+            get {
+                return ResourceManager.GetString("label_colorpick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Texto de encerramento.
+        /// </summary>
+        internal static string label_latetext {
+            get {
+                return ResourceManager.GetString("label_latetext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Minutos.
         /// </summary>
         internal static string label_min {
@@ -166,6 +193,15 @@ namespace Contador.Properties {
         internal static string label_seg {
             get {
                 return ResourceManager.GetString("label_seg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Exibir Relógio?.
+        /// </summary>
+        internal static string label_switchclock {
+            get {
+                return ResourceManager.GetString("label_switchclock", resourceCulture);
             }
         }
         

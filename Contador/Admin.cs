@@ -20,11 +20,14 @@ namespace Contador
         private int seg;
         private bool active = false;
         private bool late = false;
+        private bool showtime = false;
         private string tickTime = "";
         private static Color mainColor = Color.White;
         public static Color textColor = mainColor;
+        public static Color extColor = mainColor;
         public static Image bg = Resources.bg_sw_flip;
-        public static float sizeCoef = 0.58f;
+        public static float sizeCoef = 0.48f;
+        public static float clkSizeMultiplier = 10f;
 
         //Componentes
         private static System.Timers.Timer clock;
@@ -64,9 +67,16 @@ namespace Contador
             bt_reset_bg.Text = Resources.button_resetbg;
             cb_cor.Text = Resources.check_cor;
             lb_textsize.Text = Resources.label_txtsize;
+            cb_switchClk.Text = Resources.label_switchclock;
+            lb_lateText.Text = Resources.label_latetext;
+            lb_clksize.Text = Resources.label_clocksize;
+            lb_colorpick.Text = Resources.label_colorpick;
+
+            cd_clkcolor.Color = extColor;
+            bt_clockcolor.BackColor = cd_clkcolor.Color;
 
             clock = new System.Timers.Timer();
-            clock.Interval = 1000;
+            clock.Interval = 999;
             clock.Elapsed += Tick;
             bg_view.Image = bg;
             Reset();
@@ -107,13 +117,10 @@ namespace Contador
 
         private void Tick(object source, ElapsedEventArgs e)
         {
-            L("Tique");
-
             if (active)
             {
                 if (late)
                 {
-                    textColor = Color.Red;
                     seg++;
                     if(seg > 59)
                     {
@@ -180,7 +187,6 @@ namespace Contador
                 min = 0;
             }
             Atualizar();
-            L("Minutos: " + min.ToString());
         }
 
         private void tb_seg_TextChanged(object sender, EventArgs e)
@@ -194,7 +200,6 @@ namespace Contador
                 seg = 0;
             }
             Atualizar();
-            L("Segundos: " + seg.ToString());
         }
 
         private void cb_mon_SelectedIndexChanged(object sender, EventArgs e)
@@ -236,6 +241,9 @@ namespace Contador
             TempoEventArgs e = new TempoEventArgs();
             e.Min = min;
             e.Seg = seg;
+            e.Late = late;
+            e.ShowTime = showtime;
+            e.LateText = tb_lateTxt.Text;
             e.Img = bg;
             Contagem?.Invoke(new object(), e);
         }
@@ -338,15 +346,31 @@ namespace Contador
 
         private void tr_textsize_Scroll(object sender, EventArgs e)
         {
-            float tsize = float.Parse("0," + tr_textsize.Value.ToString());
-            sizeCoef = tsize;
-
-            if (x != null)
+            if (showtime)
             {
-                Tamanho += new SizeHolder(x.GetSize);
-                SizeEventArgs z = new SizeEventArgs();
-                z.Size = tsize;
-                Tamanho?.Invoke(new object(), z);
+                float tsize = float.Parse((tr_textsize.Value / 120f).ToString());
+                sizeCoef = tsize;
+
+                if (x != null)
+                {
+                    Tamanho += new SizeHolder(x.GetSize);
+                    SizeEventArgs z = new SizeEventArgs();
+                    z.Size = tsize;
+                    Tamanho?.Invoke(new object(), z);
+                }
+            }
+            else
+            {
+                float tsize = float.Parse("0," + tr_textsize.Value.ToString());
+                sizeCoef = tsize;
+
+                if (x != null)
+                {
+                    Tamanho += new SizeHolder(x.GetSize);
+                    SizeEventArgs z = new SizeEventArgs();
+                    z.Size = tsize;
+                    Tamanho?.Invoke(new object(), z);
+                }
             }
         }
 
@@ -355,6 +379,58 @@ namespace Contador
             e.Handled = true;
 
             L("Pressionado: " + e.KeyValue);
+        }
+
+        private void cb_switchClk_CheckedChanged(object sender, EventArgs e)
+        {
+            showtime = cb_switchClk.Checked;
+
+            if (showtime)
+            {
+                float tsize = float.Parse("0," + (tr_textsize.Value/2).ToString());
+                sizeCoef = tsize;
+
+                if (x != null)
+                {
+                    Tamanho += new SizeHolder(x.GetSize);
+                    SizeEventArgs z = new SizeEventArgs();
+                    z.Size = tsize;
+                    Tamanho?.Invoke(new object(), z);
+                }
+            }
+            else
+            {
+                float tsize = float.Parse("0," + tr_textsize.Value.ToString());
+                sizeCoef = tsize;
+
+                if (x != null)
+                {
+                    Tamanho += new SizeHolder(x.GetSize);
+                    SizeEventArgs z = new SizeEventArgs();
+                    z.Size = tsize;
+                    Tamanho?.Invoke(new object(), z);
+                }
+            }
+            Atualizar();
+        }
+
+        private void tr_clksize_Scroll(object sender, EventArgs e)
+        {
+            clkSizeMultiplier = tr_clksize.Value;
+            if(x != null)
+            {
+                x.ResizeClock();
+            }
+        }
+
+        private void bt_clockcolor_Click(object sender, EventArgs e)
+        {
+            DialogResult colorpick = cd_clkcolor.ShowDialog();
+            if(colorpick == DialogResult.OK)
+            {
+                extColor = cd_clkcolor.Color;
+                bt_clockcolor.BackColor = cd_clkcolor.Color;
+            }
         }
     }
 }

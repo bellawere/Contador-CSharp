@@ -11,7 +11,6 @@ namespace Contador
     public class SizeEventArgs : EventArgs
     {
         private float size;
-
         public float Size { get => size; set => size = value; }
     }
 }

@@ -163,4 +163,16 @@
   <data name="label_txtsize" xml:space="preserve">
     <value>Tamanho do texto</value>
   </data>
+  <data name="label_latetext" xml:space="preserve">
+    <value>Texto de encerramento</value>
+  </data>
+  <data name="label_switchclock" xml:space="preserve">
+    <value>Exibir Relógio?</value>
+  </data>
+  <data name="label_clocksize" xml:space="preserve">
+    <value>Tamanho do relógio</value>
+  </data>
+  <data name="label_colorpick" xml:space="preserve">
+    <value>Cor dos textos adicionais</value>
+  </data>
 </root>
