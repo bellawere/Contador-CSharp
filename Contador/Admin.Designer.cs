@@ -244,7 +244,7 @@
             this.tr_textsize.Name = "tr_textsize";
             this.tr_textsize.Size = new System.Drawing.Size(221, 45);
             this.tr_textsize.TabIndex = 1;
-            this.tr_textsize.Value = 48;
+            this.tr_textsize.Value = 45;
             this.tr_textsize.Scroll += new System.EventHandler(this.tr_textsize_Scroll);
             // 
             // lb_lateText
