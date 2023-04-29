@@ -16,16 +16,23 @@ namespace Contador
 {
     public partial class Admin : Form
     {
+        private int hour;
         private int min;
         private int seg;
+
+        private long time;
+
         private bool active = false;
         private bool late = false;
         private bool showtime = false;
         private string tickTime = "";
+
         private static Color mainColor = Color.White;
         public static Color textColor = mainColor;
         public static Color extColor = mainColor;
+
         public static Image bg = Resources.bg_sw_flip;
+
         public static float sizeCoef = 0.48f;
         public static float clkSizeMultiplier = 10f;
 
@@ -42,19 +49,14 @@ namespace Contador
         public Admin()
         {
             InitializeComponent();
-            telas = Screen.AllScreens;
             telasIndex = new List<string>();
             console = new List<string>();
 
-            foreach (Screen x in telas)
-            {
-                telasIndex.Add(x.DeviceName);
-            }
+            UpdateScreens();
 
-            cb_mon.Items.AddRange(telasIndex.ToArray());
-            cb_mon.SelectedItem = cb_mon.Items[0];
+            cb_mon.SelectedItem = cb_mon.Items[cb_mon.Items.Count - 1];
 
-            tela = Screen.AllScreens[cb_mon.SelectedIndex] ;
+            tela = Screen.AllScreens[cb_mon.SelectedIndex];
 
             bt_send.Text = Resources.button_stream;
             bt_start.Text = Resources.button_start;
@@ -78,11 +80,13 @@ namespace Contador
             clock = new System.Timers.Timer();
             clock.Interval = 999;
             clock.Elapsed += Tick;
+
+            
+
             bg_view.Image = bg;
             Reset();
 
             FormClosing += OnClose;
-            KeyDown += new KeyEventHandler(GetKey);
 
             L("Programa iniciado. Bem vindos.");
         }
@@ -113,39 +117,74 @@ namespace Contador
             bt_stop.Text = Resources.button_reset;
         }
 
+        private void UpdateScreens()
+        {
+            telas = Screen.AllScreens;
+
+            telasIndex.Clear();
+
+            foreach (Screen x in telas)
+            {
+                telasIndex.Add(x.DeviceName);
+            }
+
+            cb_mon.Items.Clear();
+            cb_mon.Items.AddRange(telasIndex.ToArray());
+        }
+
         //Eventos de tique, edição e atualização abaixo
 
         private void Tick(object source, ElapsedEventArgs e)
         {
             if (active)
             {
-                if (late)
+                //New implement
+                time--;
+
+                DateTime new_time = new DateTime();
+                new_time.AddSeconds(time);
+
+                min = new_time.Minute;
+                seg = new_time.Second;
+                hour = new_time.Hour;
+
+                if(time < 0)
                 {
-                    seg++;
-                    if(seg > 59)
-                    {
-                        min++;
-                        seg = 0;
-                    }
+                    textColor = Color.Red;
                 }
                 else
                 {
                     textColor = mainColor;
-                    seg--;
-                    if (seg < 0)
-                    {
-                        min--;
-                        seg = 59;
-                    }
-
-                    if (min < 0)
-                    {
-                        textColor = Color.Red;
-                        late = true;
-                        min = 0;
-                        seg = 1;
-                    }
                 }
+
+                //Deprecrated
+                //if (late)
+                //{
+                //    seg++;
+                //    if(seg > 59)
+                //    {
+                //        min++;
+                //        seg = 0;
+                //    }
+                //}
+                //else
+                //{
+                //    textColor = mainColor;
+                //    seg--;
+                //    if (seg < 0)
+                //    {
+                //        min--;
+                //        seg = 59;
+                //    }
+
+                //    if (min < 0)
+                //    {
+                //        textColor = Color.Red;
+                //        late = true;
+                //        min = 0;
+                //        seg = 1;
+                //    }
+                //}
             }
 
             Atualizar();
@@ -180,7 +219,19 @@ namespace Contador
         {
             try
             {
-                min = int.Parse(tb_min.Text);
+                int rawmin = int.Parse(tb_min.Text);
+                time = (rawmin * 60) + seg;
+
+                if (rawmin >= 60)
+                {
+                    hour = rawmin / 60;
+                    min = rawmin % 60;
+                }
+                else
+                {
+                    hour = 0;
+                    min = rawmin;
+                }
             }
             catch (FormatException)
             {
@@ -193,7 +244,22 @@ namespace Contador
         {
             try
             {
-                seg = int.Parse(tb_seg.Text);
+                int rawseg = int.Parse(tb_seg.Text);
+
+                if(rawseg >= 60)
+                {
+                    seg = rawseg % 60;
+                    min++;
+
+                    tb_min.Text = ((hour * 60) + min).ToString();
+                    tb_seg.Text = seg.ToString();
+                }
+                else
+                {
+                    seg = rawseg;
+                }
+
+                time = min + rawseg;
             }
             catch (FormatException)
             {
@@ -210,7 +276,12 @@ namespace Contador
 
         private void Exibir()
         {
-            string t = min.ToString("D2") + ":" + seg.ToString("D2");
+            if (x != null) return;
+
+            string t = 
+                hour > 0 ? 
+                hour.ToString() + ":" + min.ToString() + ":" + seg.ToString() : 
+                min.ToString("D2") + ":" + seg.ToString("D2");
             x = new Relogio(cb_mon.SelectedIndex, t);
             x.Show();
             L("Exibindo relógio");
@@ -220,27 +291,37 @@ namespace Contador
         {
             MethodInvoker inv = delegate
             {
-                string timestring = min.ToString("D2") + ":" + seg.ToString("D2");
+                string timestring = "";
+
+                if(hour > 0)
+                {
+                    timestring = hour.ToString("D2") + ":" + min.ToString("D2") + ":" + seg.ToString("D2");
+
+                }
+                else
+                {
+                    timestring = min.ToString("D2") + ":" + seg.ToString("D2");
+                }
+
                 time_return.Text = timestring;
 
-                tb_min.Text = min.ToString();
+                tb_min.Text = hour > 0 ? ((hour * 60)+min).ToString() : min.ToString();
                 tb_seg.Text = seg.ToString();
                 
                 if(x != null)
                 {
                     Contagem += new TimeHolder(x.GetTime);
-                    SendTime();
+                    SendTime(timestring);
                 }
             };
 
             Invoke(inv);
         }
 
-        private void SendTime()
+        private void SendTime(string time)
         {
             TempoEventArgs e = new TempoEventArgs();
-            e.Min = min;
-            e.Seg = seg;
+            e.StringedTime = time;
             e.Late = late;
             e.ShowTime = showtime;
             e.LateText = tb_lateTxt.Text;
@@ -431,6 +512,11 @@ namespace Contador
                 extColor = cd_clkcolor.Color;
                 bt_clockcolor.BackColor = cd_clkcolor.Color;
             }
+        }
+
+        private void cb_mon_DropDown(object sender, EventArgs e)
+        {
+            UpdateScreens();
         }
     }
 }

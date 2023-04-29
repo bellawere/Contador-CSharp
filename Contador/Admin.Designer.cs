@@ -64,27 +64,30 @@
             // 
             // bt_start
             // 
-            this.bt_start.Location = new System.Drawing.Point(340, 8);
+            this.bt_start.Location = new System.Drawing.Point(453, 10);
+            this.bt_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_start.Name = "bt_start";
-            this.bt_start.Size = new System.Drawing.Size(75, 23);
+            this.bt_start.Size = new System.Drawing.Size(100, 28);
             this.bt_start.TabIndex = 0;
             this.bt_start.UseVisualStyleBackColor = true;
             this.bt_start.Click += new System.EventHandler(this.bt_start_Click);
             // 
             // bt_stop
             // 
-            this.bt_stop.Location = new System.Drawing.Point(421, 8);
+            this.bt_stop.Location = new System.Drawing.Point(561, 10);
+            this.bt_stop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_stop.Name = "bt_stop";
-            this.bt_stop.Size = new System.Drawing.Size(75, 23);
+            this.bt_stop.Size = new System.Drawing.Size(100, 28);
             this.bt_stop.TabIndex = 1;
             this.bt_stop.UseVisualStyleBackColor = true;
             this.bt_stop.Click += new System.EventHandler(this.bt_stop_Click);
             // 
             // tb_min
             // 
-            this.tb_min.Location = new System.Drawing.Point(78, 12);
+            this.tb_min.Location = new System.Drawing.Point(104, 15);
+            this.tb_min.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_min.Name = "tb_min";
-            this.tb_min.Size = new System.Drawing.Size(54, 20);
+            this.tb_min.Size = new System.Drawing.Size(71, 22);
             this.tb_min.TabIndex = 2;
             this.tb_min.Text = "0";
             this.tb_min.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -93,24 +96,27 @@
             // lb_min
             // 
             this.lb_min.AutoSize = true;
-            this.lb_min.Location = new System.Drawing.Point(12, 15);
+            this.lb_min.Location = new System.Drawing.Point(16, 18);
+            this.lb_min.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_min.Name = "lb_min";
-            this.lb_min.Size = new System.Drawing.Size(0, 13);
+            this.lb_min.Size = new System.Drawing.Size(0, 16);
             this.lb_min.TabIndex = 3;
             // 
             // lb_seg
             // 
             this.lb_seg.AutoSize = true;
-            this.lb_seg.Location = new System.Drawing.Point(174, 15);
+            this.lb_seg.Location = new System.Drawing.Point(232, 18);
+            this.lb_seg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_seg.Name = "lb_seg";
-            this.lb_seg.Size = new System.Drawing.Size(0, 13);
+            this.lb_seg.Size = new System.Drawing.Size(0, 16);
             this.lb_seg.TabIndex = 4;
             // 
             // tb_seg
             // 
-            this.tb_seg.Location = new System.Drawing.Point(244, 11);
+            this.tb_seg.Location = new System.Drawing.Point(325, 14);
+            this.tb_seg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_seg.Name = "tb_seg";
-            this.tb_seg.Size = new System.Drawing.Size(56, 20);
+            this.tb_seg.Size = new System.Drawing.Size(73, 22);
             this.tb_seg.TabIndex = 5;
             this.tb_seg.Text = "0";
             this.tb_seg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -118,9 +124,10 @@
             // 
             // bt_send
             // 
-            this.bt_send.Location = new System.Drawing.Point(15, 238);
+            this.bt_send.Location = new System.Drawing.Point(20, 293);
+            this.bt_send.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_send.Name = "bt_send";
-            this.bt_send.Size = new System.Drawing.Size(480, 31);
+            this.bt_send.Size = new System.Drawing.Size(640, 38);
             this.bt_send.TabIndex = 6;
             this.bt_send.UseVisualStyleBackColor = true;
             this.bt_send.Click += new System.EventHandler(this.bt_send_Click);
@@ -128,27 +135,30 @@
             // bg_view
             // 
             this.bg_view.BackColor = System.Drawing.Color.Transparent;
-            this.bg_view.Location = new System.Drawing.Point(15, 50);
+            this.bg_view.Location = new System.Drawing.Point(20, 62);
+            this.bg_view.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bg_view.Name = "bg_view";
-            this.bg_view.Size = new System.Drawing.Size(377, 117);
+            this.bg_view.Size = new System.Drawing.Size(503, 144);
             this.bg_view.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bg_view.TabIndex = 7;
             this.bg_view.TabStop = false;
             // 
             // bt_bg
             // 
-            this.bt_bg.Location = new System.Drawing.Point(398, 50);
+            this.bt_bg.Location = new System.Drawing.Point(531, 62);
+            this.bt_bg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_bg.Name = "bt_bg";
-            this.bt_bg.Size = new System.Drawing.Size(98, 44);
+            this.bt_bg.Size = new System.Drawing.Size(131, 54);
             this.bt_bg.TabIndex = 8;
             this.bt_bg.UseVisualStyleBackColor = true;
             this.bt_bg.Click += new System.EventHandler(this.bt_bg_Click);
             // 
             // bt_reset_bg
             // 
-            this.bt_reset_bg.Location = new System.Drawing.Point(398, 100);
+            this.bt_reset_bg.Location = new System.Drawing.Point(531, 123);
+            this.bt_reset_bg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_reset_bg.Name = "bt_reset_bg";
-            this.bt_reset_bg.Size = new System.Drawing.Size(98, 44);
+            this.bt_reset_bg.Size = new System.Drawing.Size(131, 54);
             this.bt_reset_bg.TabIndex = 9;
             this.bt_reset_bg.UseVisualStyleBackColor = true;
             this.bt_reset_bg.Click += new System.EventHandler(this.bt_reset_bg_Click);
@@ -156,27 +166,31 @@
             // cb_mon
             // 
             this.cb_mon.FormattingEnabled = true;
-            this.cb_mon.Location = new System.Drawing.Point(15, 209);
+            this.cb_mon.Location = new System.Drawing.Point(20, 257);
+            this.cb_mon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cb_mon.Name = "cb_mon";
-            this.cb_mon.Size = new System.Drawing.Size(480, 21);
+            this.cb_mon.Size = new System.Drawing.Size(639, 24);
             this.cb_mon.TabIndex = 10;
+            this.cb_mon.DropDown += new System.EventHandler(this.cb_mon_DropDown);
             this.cb_mon.SelectedIndexChanged += new System.EventHandler(this.cb_mon_SelectedIndexChanged);
             // 
             // lb_mon
             // 
             this.lb_mon.AutoSize = true;
-            this.lb_mon.Location = new System.Drawing.Point(15, 184);
+            this.lb_mon.Location = new System.Drawing.Point(20, 226);
+            this.lb_mon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_mon.Name = "lb_mon";
-            this.lb_mon.Size = new System.Drawing.Size(0, 13);
+            this.lb_mon.Size = new System.Drawing.Size(0, 16);
             this.lb_mon.TabIndex = 11;
             // 
             // cb_cor
             // 
             this.cb_cor.AutoSize = true;
             this.cb_cor.BackColor = System.Drawing.Color.Transparent;
-            this.cb_cor.Location = new System.Drawing.Point(398, 150);
+            this.cb_cor.Location = new System.Drawing.Point(531, 185);
+            this.cb_cor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cb_cor.Name = "cb_cor";
-            this.cb_cor.Size = new System.Drawing.Size(15, 14);
+            this.cb_cor.Size = new System.Drawing.Size(18, 17);
             this.cb_cor.TabIndex = 13;
             this.cb_cor.UseVisualStyleBackColor = false;
             this.cb_cor.CheckedChanged += new System.EventHandler(this.cb_cor_CheckedChanged);
@@ -184,18 +198,20 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Contador.Properties.Resources.sw_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(340, 275);
+            this.pictureBox1.Location = new System.Drawing.Point(453, 338);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 32);
+            this.pictureBox1.Size = new System.Drawing.Size(207, 39);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
             // bt_identify
             // 
-            this.bt_identify.Location = new System.Drawing.Point(375, 180);
+            this.bt_identify.Location = new System.Drawing.Point(500, 222);
+            this.bt_identify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_identify.Name = "bt_identify";
-            this.bt_identify.Size = new System.Drawing.Size(120, 23);
+            this.bt_identify.Size = new System.Drawing.Size(160, 28);
             this.bt_identify.TabIndex = 15;
             this.bt_identify.UseVisualStyleBackColor = true;
             this.bt_identify.Click += new System.EventHandler(this.bt_identify_Click);
@@ -203,27 +219,30 @@
             // lb_console
             // 
             this.lb_console.AutoSize = true;
-            this.lb_console.Location = new System.Drawing.Point(12, 287);
+            this.lb_console.Location = new System.Drawing.Point(16, 353);
+            this.lb_console.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_console.Name = "lb_console";
-            this.lb_console.Size = new System.Drawing.Size(0, 13);
+            this.lb_console.Size = new System.Drawing.Size(0, 16);
             this.lb_console.TabIndex = 16;
             // 
             // tb_console
             // 
             this.tb_console.Enabled = false;
-            this.tb_console.Location = new System.Drawing.Point(15, 318);
+            this.tb_console.Location = new System.Drawing.Point(20, 391);
+            this.tb_console.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_console.Multiline = true;
             this.tb_console.Name = "tb_console";
-            this.tb_console.Size = new System.Drawing.Size(480, 92);
+            this.tb_console.Size = new System.Drawing.Size(639, 112);
             this.tb_console.TabIndex = 17;
             // 
             // time_return
             // 
             this.time_return.AutoSize = true;
             this.time_return.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.time_return.Location = new System.Drawing.Point(513, 8);
+            this.time_return.Location = new System.Drawing.Point(684, 10);
+            this.time_return.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.time_return.Name = "time_return";
-            this.time_return.Size = new System.Drawing.Size(237, 91);
+            this.time_return.Size = new System.Drawing.Size(300, 113);
             this.time_return.TabIndex = 18;
             this.time_return.Text = "00:00";
             this.time_return.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -231,18 +250,20 @@
             // lb_textsize
             // 
             this.lb_textsize.AutoSize = true;
-            this.lb_textsize.Location = new System.Drawing.Point(529, 130);
+            this.lb_textsize.Location = new System.Drawing.Point(705, 160);
+            this.lb_textsize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_textsize.Name = "lb_textsize";
-            this.lb_textsize.Size = new System.Drawing.Size(0, 13);
+            this.lb_textsize.Size = new System.Drawing.Size(0, 16);
             this.lb_textsize.TabIndex = 19;
             // 
             // tr_textsize
             // 
-            this.tr_textsize.Location = new System.Drawing.Point(529, 158);
+            this.tr_textsize.Location = new System.Drawing.Point(705, 194);
+            this.tr_textsize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tr_textsize.Maximum = 48;
             this.tr_textsize.Minimum = 25;
             this.tr_textsize.Name = "tr_textsize";
-            this.tr_textsize.Size = new System.Drawing.Size(221, 45);
+            this.tr_textsize.Size = new System.Drawing.Size(295, 56);
             this.tr_textsize.TabIndex = 1;
             this.tr_textsize.Value = 45;
             this.tr_textsize.Scroll += new System.EventHandler(this.tr_textsize_Scroll);
@@ -250,24 +271,27 @@
             // lb_lateText
             // 
             this.lb_lateText.AutoSize = true;
-            this.lb_lateText.Location = new System.Drawing.Point(532, 216);
+            this.lb_lateText.Location = new System.Drawing.Point(709, 266);
+            this.lb_lateText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_lateText.Name = "lb_lateText";
-            this.lb_lateText.Size = new System.Drawing.Size(0, 13);
+            this.lb_lateText.Size = new System.Drawing.Size(0, 16);
             this.lb_lateText.TabIndex = 20;
             // 
             // tb_lateTxt
             // 
-            this.tb_lateTxt.Location = new System.Drawing.Point(529, 248);
+            this.tb_lateTxt.Location = new System.Drawing.Point(705, 305);
+            this.tb_lateTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_lateTxt.Name = "tb_lateTxt";
-            this.tb_lateTxt.Size = new System.Drawing.Size(221, 20);
+            this.tb_lateTxt.Size = new System.Drawing.Size(293, 22);
             this.tb_lateTxt.TabIndex = 21;
             // 
             // cb_switchClk
             // 
             this.cb_switchClk.AutoSize = true;
-            this.cb_switchClk.Location = new System.Drawing.Point(529, 289);
+            this.cb_switchClk.Location = new System.Drawing.Point(705, 356);
+            this.cb_switchClk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cb_switchClk.Name = "cb_switchClk";
-            this.cb_switchClk.Size = new System.Drawing.Size(15, 14);
+            this.cb_switchClk.Size = new System.Drawing.Size(18, 17);
             this.cb_switchClk.TabIndex = 22;
             this.cb_switchClk.UseVisualStyleBackColor = true;
             this.cb_switchClk.CheckedChanged += new System.EventHandler(this.cb_switchClk_CheckedChanged);
@@ -275,27 +299,30 @@
             // lb_clksize
             // 
             this.lb_clksize.AutoSize = true;
-            this.lb_clksize.Location = new System.Drawing.Point(529, 318);
+            this.lb_clksize.Location = new System.Drawing.Point(705, 391);
+            this.lb_clksize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_clksize.Name = "lb_clksize";
-            this.lb_clksize.Size = new System.Drawing.Size(0, 13);
+            this.lb_clksize.Size = new System.Drawing.Size(0, 16);
             this.lb_clksize.TabIndex = 23;
             // 
             // tr_clksize
             // 
-            this.tr_clksize.Location = new System.Drawing.Point(529, 338);
+            this.tr_clksize.Location = new System.Drawing.Point(705, 416);
+            this.tr_clksize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tr_clksize.Maximum = 30;
             this.tr_clksize.Minimum = 5;
             this.tr_clksize.Name = "tr_clksize";
-            this.tr_clksize.Size = new System.Drawing.Size(221, 45);
+            this.tr_clksize.Size = new System.Drawing.Size(295, 56);
             this.tr_clksize.TabIndex = 24;
             this.tr_clksize.Value = 10;
             this.tr_clksize.Scroll += new System.EventHandler(this.tr_clksize_Scroll);
             // 
             // bt_clockcolor
             // 
-            this.bt_clockcolor.Location = new System.Drawing.Point(686, 387);
+            this.bt_clockcolor.Location = new System.Drawing.Point(915, 476);
+            this.bt_clockcolor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_clockcolor.Name = "bt_clockcolor";
-            this.bt_clockcolor.Size = new System.Drawing.Size(64, 23);
+            this.bt_clockcolor.Size = new System.Drawing.Size(85, 28);
             this.bt_clockcolor.TabIndex = 25;
             this.bt_clockcolor.UseVisualStyleBackColor = true;
             this.bt_clockcolor.Click += new System.EventHandler(this.bt_clockcolor_Click);
@@ -303,17 +330,18 @@
             // lb_colorpick
             // 
             this.lb_colorpick.AutoSize = true;
-            this.lb_colorpick.Location = new System.Drawing.Point(526, 397);
+            this.lb_colorpick.Location = new System.Drawing.Point(701, 489);
+            this.lb_colorpick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_colorpick.Name = "lb_colorpick";
-            this.lb_colorpick.Size = new System.Drawing.Size(0, 13);
+            this.lb_colorpick.Size = new System.Drawing.Size(0, 16);
             this.lb_colorpick.TabIndex = 26;
             // 
             // Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(772, 422);
+            this.ClientSize = new System.Drawing.Size(1029, 519);
             this.Controls.Add(this.lb_colorpick);
             this.Controls.Add(this.bt_clockcolor);
             this.Controls.Add(this.tr_clksize);
@@ -342,6 +370,7 @@
             this.Controls.Add(this.bt_stop);
             this.Controls.Add(this.bt_start);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Admin";
             this.Text = "Cronômetro Stereoworks";
             ((System.ComponentModel.ISupportInitialize)(this.bg_view)).EndInit();

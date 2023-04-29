@@ -74,7 +74,7 @@ namespace Contador
             {
                 lb_latetext.Text = "";
             }
-            t += e.Min.ToString("D2") + ":" + e.Seg.ToString("D2");
+            t = e.StringedTime;
             if (e.ShowTime)
             {
                 invert = true;

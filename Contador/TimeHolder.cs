@@ -11,14 +11,12 @@ namespace Contador
 
     public class TempoEventArgs : EventArgs
     {
-        private int min;
-        private int seg;
+        private string stringedTime;
         private bool late;
         private bool showtime;
         private string latetext;
 
-        public int Min { get => min; set => min = value; }
-        public int Seg { get => seg; set => seg = value; }
+        public string StringedTime { get => stringedTime; set => stringedTime = value; }
         public bool Late { get => late; set => late = value; }
         public bool ShowTime { get => showtime; set => showtime = value; }
         public string LateText { get => latetext; set => latetext = value; }
