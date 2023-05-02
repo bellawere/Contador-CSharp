@@ -80,6 +80,15 @@ namespace Contador.Properties {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Fechar Relógio.
+        /// </summary>
+        internal static string button_closeclock {
+            get {
+                return ResourceManager.GetString("button_closeclock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Identificar telas.
         /// </summary>
         internal static string button_id {

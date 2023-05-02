@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
 
@@ -15,7 +9,7 @@ namespace Contador
     {
         SolidBrush pincel = new SolidBrush(Color.Black);
         Graphics layout;
-        System.Timers.Timer ticker;
+        public System.Timers.Timer ticker;
         bool invert = false;
         float clkFontSize;
 
@@ -137,13 +131,13 @@ namespace Contador
 
         public void GetEsc(object sender, KeyEventArgs e)
         {
-            ticker.Stop();
             e.Handled = true;
 
             Console.WriteLine("Pressionado: " + e.KeyCode);
 
             if(e.KeyCode == Keys.Escape)
             {
+                ticker.Stop();
                 Close();
             } else if(e.KeyCode == Keys.Enter)
             {

@@ -20,7 +20,7 @@ namespace Contador
         private int min;
         private int seg;
 
-        private long time;
+        private int time;
 
         private bool active = false;
         private bool late = false;
@@ -141,12 +141,28 @@ namespace Contador
                 //New implement
                 time--;
 
-                DateTime new_time = new DateTime();
-                new_time.AddSeconds(time);
+                if(time < 60)
+                {
+                    seg = time;
+                    min = 0;
+                    hour = 0;
+                }
+                else
+                {
+                    seg = time % 60;
+                    int remaining_min = time / 60;
 
-                min = new_time.Minute;
-                seg = new_time.Second;
-                hour = new_time.Hour;
+                    if(remaining_min < 60)
+                    {
+                        min = remaining_min;
+                        hour = 0;
+                    }
+                    else
+                    {
+                        min = remaining_min % 60;
+                        hour = remaining_min / 60;
+                    }
+                }
 
                 if(time < 0)
                 {
@@ -220,6 +236,7 @@ namespace Contador
             try
             {
                 int rawmin = int.Parse(tb_min.Text);
+
                 time = (rawmin * 60) + seg;
 
                 if (rawmin >= 60)
@@ -237,6 +254,7 @@ namespace Contador
             {
                 min = 0;
             }
+
             Atualizar();
         }
 
@@ -259,7 +277,7 @@ namespace Contador
                     seg = rawseg;
                 }
 
-                time = min + rawseg;
+                time = (((hour * 60) + min) * 60) + rawseg;
             }
             catch (FormatException)
             {
@@ -276,7 +294,14 @@ namespace Contador
 
         private void Exibir()
         {
-            if (x != null) return;
+            if (x != null) {
+                x.ticker.Stop();
+                x.Close();
+                x.Dispose();
+                x = null;
+                bt_send.Text = Resources.button_stream;
+                return;
+            }
 
             string t = 
                 hour > 0 ? 
@@ -284,6 +309,7 @@ namespace Contador
                 min.ToString("D2") + ":" + seg.ToString("D2");
             x = new Relogio(cb_mon.SelectedIndex, t);
             x.Show();
+            bt_send.Text = Resources.button_closeclock;
             L("Exibindo relógio");
         }
 

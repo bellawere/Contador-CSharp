@@ -175,4 +175,7 @@
   <data name="label_colorpick" xml:space="preserve">
     <value>Cor dos textos adicionais</value>
   </data>
+  <data name="button_closeclock" xml:space="preserve">
+    <value>Fechar Relógio</value>
+  </data>
 </root>
