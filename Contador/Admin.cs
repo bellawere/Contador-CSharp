@@ -465,7 +465,7 @@ namespace Contador
 
                 if (x != null)
                 {
-                    Tamanho += new SizeHolder(x.GetSize);
+                    Tamanho = new SizeHolder(x.GetSize);
                     SizeEventArgs z = new SizeEventArgs();
                     z.Size = tsize;
                     Tamanho?.Invoke(new object(), z);
@@ -478,7 +478,7 @@ namespace Contador
 
                 if (x != null)
                 {
-                    Tamanho += new SizeHolder(x.GetSize);
+                    Tamanho = new SizeHolder(x.GetSize);
                     SizeEventArgs z = new SizeEventArgs();
                     z.Size = tsize;
                     Tamanho?.Invoke(new object(), z);
@@ -504,7 +504,7 @@ namespace Contador
 
                 if (x != null)
                 {
-                    Tamanho += new SizeHolder(x.GetSize);
+                    Tamanho = new SizeHolder(x.GetSize);
                     SizeEventArgs z = new SizeEventArgs();
                     z.Size = tsize;
                     Tamanho?.Invoke(new object(), z);
@@ -517,7 +517,7 @@ namespace Contador
 
                 if (x != null)
                 {
-                    Tamanho += new SizeHolder(x.GetSize);
+                    Tamanho = new SizeHolder(x.GetSize);
                     SizeEventArgs z = new SizeEventArgs();
                     z.Size = tsize;
                     Tamanho?.Invoke(new object(), z);
