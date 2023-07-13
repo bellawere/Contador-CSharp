@@ -167,40 +167,34 @@ namespace Contador
                 if(time < 0)
                 {
                     textColor = Color.Red;
+
+                    if (time > -60)
+                    {
+                        seg = time;
+                        min = 0;
+                        hour = 0;
+                    }
+                    else
+                    {
+                        seg = time % 60;
+                        int remaining_min = time / 60;
+
+                        if (remaining_min > -60)
+                        {
+                            min = remaining_min;
+                            hour = 0;
+                        }
+                        else
+                        {
+                            min = remaining_min % 60;
+                            hour = remaining_min / 60;
+                        }
+                    }
                 }
                 else
                 {
                     textColor = mainColor;
                 }
-
-                //Deprecrated
-                //if (late)
-                //{
-                //    seg++;
-                //    if(seg > 59)
-                //    {
-                //        min++;
-                //        seg = 0;
-                //    }
-                //}
-                //else
-                //{
-                //    textColor = mainColor;
-                //    seg--;
-                //    if (seg < 0)
-                //    {
-                //        min--;
-                //        seg = 59;
-                //    }
-
-                //    if (min < 0)
-                //    {
-                //        textColor = Color.Red;
-                //        late = true;
-                //        min = 0;
-                //        seg = 1;
-                //    }
-                //}
             }
 
             Atualizar();
@@ -329,6 +323,17 @@ namespace Contador
                     timestring = min.ToString("D2") + ":" + seg.ToString("D2");
                 }
 
+                if (timestring.Contains("-"))
+                {
+                    string corrected = "-";
+
+                    foreach(char c in timestring)
+                    {
+                        if (c != '-') { corrected += c; }
+                    }
+                    timestring = corrected;
+                }
+
                 time_return.Text = timestring;
 
                 tb_min.Text = hour > 0 ? ((hour * 60)+min).ToString() : min.ToString();
@@ -336,7 +341,7 @@ namespace Contador
                 
                 if(x != null)
                 {
-                    Contagem += new TimeHolder(x.GetTime);
+                    Contagem = new TimeHolder(x.GetTime);
                     SendTime(timestring);
                 }
             };
