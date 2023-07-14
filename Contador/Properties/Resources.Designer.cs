@@ -206,7 +206,7 @@ namespace Contador.Properties {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Exibir Relógio?.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Esconder Relógio?.
         /// </summary>
         internal static string label_switchclock {
             get {

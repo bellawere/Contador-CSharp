@@ -167,7 +167,7 @@
     <value>Texto de encerramento</value>
   </data>
   <data name="label_switchclock" xml:space="preserve">
-    <value>Exibir Relógio?</value>
+    <value>Esconder Relógio?</value>
   </data>
   <data name="label_clocksize" xml:space="preserve">
     <value>Tamanho do relógio</value>

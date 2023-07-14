@@ -71,16 +71,18 @@ namespace Contador
             t = e.StringedTime;
             if (e.ShowTime)
             {
-                invert = true;
-                clock.Text = t;
-                clock.ForeColor = Admin.textColor;
+                invert = false;
+                tempo.Text = t;
+                tempo.ForeColor = Admin.textColor;
+                clock.Visible = false;
             }
             else
             {
                 invert = false;
                 tempo.Text = t;
                 tempo.ForeColor = Admin.textColor;
-                
+                clock.Visible = true;
+
             }
             if (BackgroundImage != e.Img)
             {
@@ -99,10 +101,10 @@ namespace Contador
             }
             else
             {
-                tempo.BeginInvoke((MethodInvoker)delegate ()
+                clock.BeginInvoke((MethodInvoker)delegate ()
                 {
-                    tempo.Text = DateTime.Now.ToLongTimeString();
-                    tempo.ForeColor = Admin.extColor;
+                    clock.Text = DateTime.Now.ToLongTimeString();
+                    clock.ForeColor = Admin.extColor;
                 });
             }
         }

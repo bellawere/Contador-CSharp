@@ -65,7 +65,7 @@
             // bt_start
             // 
             this.bt_start.Location = new System.Drawing.Point(453, 10);
-            this.bt_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_start.Margin = new System.Windows.Forms.Padding(4);
             this.bt_start.Name = "bt_start";
             this.bt_start.Size = new System.Drawing.Size(100, 28);
             this.bt_start.TabIndex = 0;
@@ -75,7 +75,7 @@
             // bt_stop
             // 
             this.bt_stop.Location = new System.Drawing.Point(561, 10);
-            this.bt_stop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_stop.Margin = new System.Windows.Forms.Padding(4);
             this.bt_stop.Name = "bt_stop";
             this.bt_stop.Size = new System.Drawing.Size(100, 28);
             this.bt_stop.TabIndex = 1;
@@ -85,7 +85,7 @@
             // tb_min
             // 
             this.tb_min.Location = new System.Drawing.Point(104, 15);
-            this.tb_min.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_min.Margin = new System.Windows.Forms.Padding(4);
             this.tb_min.Name = "tb_min";
             this.tb_min.Size = new System.Drawing.Size(71, 22);
             this.tb_min.TabIndex = 2;
@@ -114,7 +114,7 @@
             // tb_seg
             // 
             this.tb_seg.Location = new System.Drawing.Point(325, 14);
-            this.tb_seg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_seg.Margin = new System.Windows.Forms.Padding(4);
             this.tb_seg.Name = "tb_seg";
             this.tb_seg.Size = new System.Drawing.Size(73, 22);
             this.tb_seg.TabIndex = 5;
@@ -125,7 +125,7 @@
             // bt_send
             // 
             this.bt_send.Location = new System.Drawing.Point(20, 293);
-            this.bt_send.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_send.Margin = new System.Windows.Forms.Padding(4);
             this.bt_send.Name = "bt_send";
             this.bt_send.Size = new System.Drawing.Size(640, 38);
             this.bt_send.TabIndex = 6;
@@ -136,7 +136,7 @@
             // 
             this.bg_view.BackColor = System.Drawing.Color.Transparent;
             this.bg_view.Location = new System.Drawing.Point(20, 62);
-            this.bg_view.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bg_view.Margin = new System.Windows.Forms.Padding(4);
             this.bg_view.Name = "bg_view";
             this.bg_view.Size = new System.Drawing.Size(503, 144);
             this.bg_view.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -146,7 +146,7 @@
             // bt_bg
             // 
             this.bt_bg.Location = new System.Drawing.Point(531, 62);
-            this.bt_bg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_bg.Margin = new System.Windows.Forms.Padding(4);
             this.bt_bg.Name = "bt_bg";
             this.bt_bg.Size = new System.Drawing.Size(131, 54);
             this.bt_bg.TabIndex = 8;
@@ -156,7 +156,7 @@
             // bt_reset_bg
             // 
             this.bt_reset_bg.Location = new System.Drawing.Point(531, 123);
-            this.bt_reset_bg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_reset_bg.Margin = new System.Windows.Forms.Padding(4);
             this.bt_reset_bg.Name = "bt_reset_bg";
             this.bt_reset_bg.Size = new System.Drawing.Size(131, 54);
             this.bt_reset_bg.TabIndex = 9;
@@ -167,7 +167,7 @@
             // 
             this.cb_mon.FormattingEnabled = true;
             this.cb_mon.Location = new System.Drawing.Point(20, 257);
-            this.cb_mon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_mon.Margin = new System.Windows.Forms.Padding(4);
             this.cb_mon.Name = "cb_mon";
             this.cb_mon.Size = new System.Drawing.Size(639, 24);
             this.cb_mon.TabIndex = 10;
@@ -188,7 +188,7 @@
             this.cb_cor.AutoSize = true;
             this.cb_cor.BackColor = System.Drawing.Color.Transparent;
             this.cb_cor.Location = new System.Drawing.Point(531, 185);
-            this.cb_cor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_cor.Margin = new System.Windows.Forms.Padding(4);
             this.cb_cor.Name = "cb_cor";
             this.cb_cor.Size = new System.Drawing.Size(18, 17);
             this.cb_cor.TabIndex = 13;
@@ -199,7 +199,7 @@
             // 
             this.pictureBox1.Image = global::Contador.Properties.Resources.sw_logo;
             this.pictureBox1.Location = new System.Drawing.Point(453, 338);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(207, 39);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -209,7 +209,7 @@
             // bt_identify
             // 
             this.bt_identify.Location = new System.Drawing.Point(500, 222);
-            this.bt_identify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_identify.Margin = new System.Windows.Forms.Padding(4);
             this.bt_identify.Name = "bt_identify";
             this.bt_identify.Size = new System.Drawing.Size(160, 28);
             this.bt_identify.TabIndex = 15;
@@ -229,7 +229,7 @@
             // 
             this.tb_console.Enabled = false;
             this.tb_console.Location = new System.Drawing.Point(20, 391);
-            this.tb_console.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_console.Margin = new System.Windows.Forms.Padding(4);
             this.tb_console.Multiline = true;
             this.tb_console.Name = "tb_console";
             this.tb_console.Size = new System.Drawing.Size(639, 112);
@@ -259,7 +259,7 @@
             // tr_textsize
             // 
             this.tr_textsize.Location = new System.Drawing.Point(705, 194);
-            this.tr_textsize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tr_textsize.Margin = new System.Windows.Forms.Padding(4);
             this.tr_textsize.Maximum = 48;
             this.tr_textsize.Minimum = 25;
             this.tr_textsize.Name = "tr_textsize";
@@ -280,7 +280,7 @@
             // tb_lateTxt
             // 
             this.tb_lateTxt.Location = new System.Drawing.Point(705, 305);
-            this.tb_lateTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_lateTxt.Margin = new System.Windows.Forms.Padding(4);
             this.tb_lateTxt.Name = "tb_lateTxt";
             this.tb_lateTxt.Size = new System.Drawing.Size(293, 22);
             this.tb_lateTxt.TabIndex = 21;
@@ -289,7 +289,7 @@
             // 
             this.cb_switchClk.AutoSize = true;
             this.cb_switchClk.Location = new System.Drawing.Point(705, 356);
-            this.cb_switchClk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_switchClk.Margin = new System.Windows.Forms.Padding(4);
             this.cb_switchClk.Name = "cb_switchClk";
             this.cb_switchClk.Size = new System.Drawing.Size(18, 17);
             this.cb_switchClk.TabIndex = 22;
@@ -308,7 +308,7 @@
             // tr_clksize
             // 
             this.tr_clksize.Location = new System.Drawing.Point(705, 416);
-            this.tr_clksize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tr_clksize.Margin = new System.Windows.Forms.Padding(4);
             this.tr_clksize.Maximum = 30;
             this.tr_clksize.Minimum = 5;
             this.tr_clksize.Name = "tr_clksize";
@@ -320,7 +320,7 @@
             // bt_clockcolor
             // 
             this.bt_clockcolor.Location = new System.Drawing.Point(915, 476);
-            this.bt_clockcolor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_clockcolor.Margin = new System.Windows.Forms.Padding(4);
             this.bt_clockcolor.Name = "bt_clockcolor";
             this.bt_clockcolor.Size = new System.Drawing.Size(85, 28);
             this.bt_clockcolor.TabIndex = 25;
@@ -370,7 +370,7 @@
             this.Controls.Add(this.bt_stop);
             this.Controls.Add(this.bt_start);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Admin";
             this.Text = "Cronômetro Stereoworks";
             ((System.ComponentModel.ISupportInitialize)(this.bg_view)).EndInit();

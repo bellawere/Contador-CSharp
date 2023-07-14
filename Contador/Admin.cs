@@ -94,6 +94,7 @@ namespace Contador
         private void Reset()
         {
             L("Resetando relógio");
+            hour = 0;
             min = 0;
             seg = 0;
             textColor = mainColor;
@@ -166,6 +167,7 @@ namespace Contador
 
                 if(time < 0)
                 {
+                    late = true;
                     textColor = Color.Red;
 
                     if (time > -60)
@@ -193,6 +195,7 @@ namespace Contador
                 }
                 else
                 {
+                    late = false;
                     textColor = mainColor;
                 }
             }
@@ -496,33 +499,6 @@ namespace Contador
         private void cb_switchClk_CheckedChanged(object sender, EventArgs e)
         {
             showtime = cb_switchClk.Checked;
-
-            if (showtime)
-            {
-                float tsize = float.Parse("0," + (tr_textsize.Value/2).ToString());
-                sizeCoef = tsize;
-
-                if (x != null)
-                {
-                    Tamanho = new SizeHolder(x.GetSize);
-                    SizeEventArgs z = new SizeEventArgs();
-                    z.Size = tsize;
-                    Tamanho?.Invoke(new object(), z);
-                }
-            }
-            else
-            {
-                float tsize = float.Parse("0," + tr_textsize.Value.ToString());
-                sizeCoef = tsize;
-
-                if (x != null)
-                {
-                    Tamanho = new SizeHolder(x.GetSize);
-                    SizeEventArgs z = new SizeEventArgs();
-                    z.Size = tsize;
-                    Tamanho?.Invoke(new object(), z);
-                }
-            }
             Atualizar();
         }
 
